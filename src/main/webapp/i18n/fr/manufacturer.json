@@ -1,0 +1,24 @@
+{
+    "3rudApp": {
+        "manufacturer" : {
+            "home": {
+                "title": "Manufacturers",
+                "createLabel": "Créer un nouveau Manufacturer",
+                "createOrEditLabel": "Créer ou éditer un Manufacturer"
+            },
+            "created": "Un nouveau Manufacturer a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Manufacturer avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Manufacturer avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Manufacturer {{ id }} ?"
+            },
+            "detail": {
+                "title": "Manufacturer"
+            },
+            "name": "Name",
+            "address": "Address",
+            "product": "Product"
+        }
+    }
+}
+

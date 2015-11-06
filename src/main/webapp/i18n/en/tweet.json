@@ -1,0 +1,51 @@
+{
+    "3rudApp": {
+        "tweet" : {
+            "home": {
+                "title": "Tweets",
+                "createLabel": "Create a new Tweet",
+                "createOrEditLabel": "Create or edit a Tweet"
+            },
+            "created": "A new Tweet is created with identifier {{ param }}",
+            "updated": "A Tweet is updated with identifier {{ param }}",
+            "deleted": "A Tweet is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tweet {{ id }}?"
+            },
+            "detail": {
+                "title": "Tweet"
+            },
+            "tweet": "Tweet",
+            "url": "Url",
+            "source": "Source",
+            "userId": "UserId",
+            "userLang": "UserLang",
+            "userName": "UserName",
+            "userScreenName": "UserScreenName",
+            "userLocation": "UserLocation",
+            "mediaId": "MediaId",
+            "mediaUrl": "MediaUrl",
+            "inReplyToStatusId": "InReplyToStatusId",
+            "inReplyToScreenName": "InReplyToScreenName",
+            "inReplyToUserId": "InReplyToUserId",
+            "urlDisplay": "UrlDisplay",
+            "urlExpanded": "UrlExpanded",
+            "keywords": "Keywords",
+            "placeId": "PlaceId",
+            "placeType": "PlaceType",
+            "placeName": "PlaceName",
+            "placeURL": "PlaceURL",
+            "placeFullName": "PlaceFullName",
+            "placeCountry": "PlaceCountry",
+            "location": "Location",
+            "userMentionScreenName": "UserMentionScreenName",
+            "userMentionName": "UserMentionName",
+            "isPossiblySensitive": "IsPossiblySensitive",
+            "isRetweetedByMe": "IsRetweetedByMe",
+            "isRetweet": "IsRetweet",
+            "isFavorited": "IsFavorited",
+            "isTruncated": "IsTruncated",
+            "retweetCount": "RetweetCount"
+        }
+    }
+}

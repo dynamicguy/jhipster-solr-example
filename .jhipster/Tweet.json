@@ -1,0 +1,168 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "tweet",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "144"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "source",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "userLang",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "userName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "userScreenName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "userLocation",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "mediaId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "mediaUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "inReplyToStatusId",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 12,
+            "fieldName": "inReplyToScreenName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 13,
+            "fieldName": "inReplyToUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldId": 14,
+            "fieldName": "urlDisplay",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 15,
+            "fieldName": "urlExpanded",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 16,
+            "fieldName": "keywords",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 17,
+            "fieldName": "placeId",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 18,
+            "fieldName": "placeType",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 19,
+            "fieldName": "placeName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 20,
+            "fieldName": "placeURL",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 21,
+            "fieldName": "placeFullName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 31,
+            "fieldName": "placeCountry",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 22,
+            "fieldName": "location",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 23,
+            "fieldName": "userMentionScreenName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 24,
+            "fieldName": "userMentionName",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 25,
+            "fieldName": "isPossiblySensitive",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 26,
+            "fieldName": "isRetweetedByMe",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 27,
+            "fieldName": "isRetweet",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 28,
+            "fieldName": "isFavorited",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 29,
+            "fieldName": "isTruncated",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 30,
+            "fieldName": "retweetCount",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20150814222324",
+    "dto": "no",
+    "pagination": "infinite-scroll"
+}

@@ -1,0 +1,222 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myTweetLabel" translate="3rudApp.tweet.home.createOrEditLabel">Create or edit a Tweet</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="tweet.id" readonly />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.tweet" for="field_tweet">Tweet</label>
+            <input type="text" class="form-control" name="tweet" id="field_tweet"
+                    ng-model="tweet.tweet"
+                    required ng-maxlength="144" />
+            <div ng-show="editForm.tweet.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tweet.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.tweet.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="144">
+                    This field cannot be longer than 144 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.url" for="field_url">Url</label>
+            <input type="text" class="form-control" name="url" id="field_url"
+                    ng-model="tweet.url"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.source" for="field_source">Source</label>
+            <input type="text" class="form-control" name="source" id="field_source"
+                    ng-model="tweet.source"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.userId" for="field_userId">UserId</label>
+            <input type="number" class="form-control" name="userId" id="field_userId"
+                    ng-model="tweet.userId"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.userLang" for="field_userLang">UserLang</label>
+            <input type="text" class="form-control" name="userLang" id="field_userLang"
+                    ng-model="tweet.userLang"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.userName" for="field_userName">UserName</label>
+            <input type="text" class="form-control" name="userName" id="field_userName"
+                    ng-model="tweet.userName"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.userScreenName" for="field_userScreenName">UserScreenName</label>
+            <input type="text" class="form-control" name="userScreenName" id="field_userScreenName"
+                    ng-model="tweet.userScreenName"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.userLocation" for="field_userLocation">UserLocation</label>
+            <input type="text" class="form-control" name="userLocation" id="field_userLocation"
+                    ng-model="tweet.userLocation"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.mediaId" for="field_mediaId">MediaId</label>
+            <input type="number" class="form-control" name="mediaId" id="field_mediaId"
+                    ng-model="tweet.mediaId"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.mediaUrl" for="field_mediaUrl">MediaUrl</label>
+            <input type="text" class="form-control" name="mediaUrl" id="field_mediaUrl"
+                    ng-model="tweet.mediaUrl"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.inReplyToStatusId" for="field_inReplyToStatusId">InReplyToStatusId</label>
+            <input type="text" class="form-control" name="inReplyToStatusId" id="field_inReplyToStatusId"
+                    ng-model="tweet.inReplyToStatusId"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.inReplyToScreenName" for="field_inReplyToScreenName">InReplyToScreenName</label>
+            <input type="text" class="form-control" name="inReplyToScreenName" id="field_inReplyToScreenName"
+                    ng-model="tweet.inReplyToScreenName"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.inReplyToUserId" for="field_inReplyToUserId">InReplyToUserId</label>
+            <input type="number" class="form-control" name="inReplyToUserId" id="field_inReplyToUserId"
+                    ng-model="tweet.inReplyToUserId"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.urlDisplay" for="field_urlDisplay">UrlDisplay</label>
+            <input type="text" class="form-control" name="urlDisplay" id="field_urlDisplay"
+                    ng-model="tweet.urlDisplay"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.urlExpanded" for="field_urlExpanded">UrlExpanded</label>
+            <input type="text" class="form-control" name="urlExpanded" id="field_urlExpanded"
+                    ng-model="tweet.urlExpanded"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.keywords" for="field_keywords">Keywords</label>
+            <input type="text" class="form-control" name="keywords" id="field_keywords"
+                    ng-model="tweet.keywords"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.placeId" for="field_placeId">PlaceId</label>
+            <input type="text" class="form-control" name="placeId" id="field_placeId"
+                    ng-model="tweet.placeId"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.placeType" for="field_placeType">PlaceType</label>
+            <input type="text" class="form-control" name="placeType" id="field_placeType"
+                    ng-model="tweet.placeType"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.placeName" for="field_placeName">PlaceName</label>
+            <input type="text" class="form-control" name="placeName" id="field_placeName"
+                    ng-model="tweet.placeName"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.placeURL" for="field_placeURL">PlaceURL</label>
+            <input type="text" class="form-control" name="placeURL" id="field_placeURL"
+                    ng-model="tweet.placeURL"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.placeFullName" for="field_placeFullName">PlaceFullName</label>
+            <input type="text" class="form-control" name="placeFullName" id="field_placeFullName"
+                    ng-model="tweet.placeFullName"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.placeCountry" for="field_placeCountry">PlaceCountry</label>
+            <input type="text" class="form-control" name="placeCountry" id="field_placeCountry"
+                    ng-model="tweet.placeCountry"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.location" for="field_location">Location</label>
+            <input type="text" class="form-control" name="location" id="field_location"
+                    ng-model="tweet.location"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.userMentionScreenName" for="field_userMentionScreenName">UserMentionScreenName</label>
+            <input type="text" class="form-control" name="userMentionScreenName" id="field_userMentionScreenName"
+                    ng-model="tweet.userMentionScreenName"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.userMentionName" for="field_userMentionName">UserMentionName</label>
+            <input type="text" class="form-control" name="userMentionName" id="field_userMentionName"
+                    ng-model="tweet.userMentionName"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.isPossiblySensitive" for="field_isPossiblySensitive">IsPossiblySensitive</label>
+            <input type="checkbox" class="form-control" name="isPossiblySensitive" id="field_isPossiblySensitive"
+                    ng-model="tweet.isPossiblySensitive"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.isRetweetedByMe" for="field_isRetweetedByMe">IsRetweetedByMe</label>
+            <input type="checkbox" class="form-control" name="isRetweetedByMe" id="field_isRetweetedByMe"
+                    ng-model="tweet.isRetweetedByMe"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.isRetweet" for="field_isRetweet">IsRetweet</label>
+            <input type="checkbox" class="form-control" name="isRetweet" id="field_isRetweet"
+                    ng-model="tweet.isRetweet"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.isFavorited" for="field_isFavorited">IsFavorited</label>
+            <input type="checkbox" class="form-control" name="isFavorited" id="field_isFavorited"
+                    ng-model="tweet.isFavorited"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.isTruncated" for="field_isTruncated">IsTruncated</label>
+            <input type="checkbox" class="form-control" name="isTruncated" id="field_isTruncated"
+                    ng-model="tweet.isTruncated"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.tweet.retweetCount" for="field_retweetCount">RetweetCount</label>
+            <input type="number" class="form-control" name="retweetCount" id="field_retweetCount"
+                    ng-model="tweet.retweetCount"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

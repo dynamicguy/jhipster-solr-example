@@ -1,0 +1,52 @@
+{
+    "3rudApp": {
+        "tweet" : {
+            "home": {
+                "title": "Tweets",
+                "createLabel": "Créer un nouveau Tweet",
+                "createOrEditLabel": "Créer ou éditer un Tweet"
+            },
+            "created": "Un nouveau Tweet a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Tweet avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Tweet avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Tweet {{ id }} ?"
+            },
+            "detail": {
+                "title": "Tweet"
+            },
+            "tweet": "Tweet",
+            "url": "Url",
+            "source": "Source",
+            "userId": "UserId",
+            "userLang": "UserLang",
+            "userName": "UserName",
+            "userScreenName": "UserScreenName",
+            "userLocation": "UserLocation",
+            "mediaId": "MediaId",
+            "mediaUrl": "MediaUrl",
+            "inReplyToStatusId": "InReplyToStatusId",
+            "inReplyToScreenName": "InReplyToScreenName",
+            "inReplyToUserId": "InReplyToUserId",
+            "urlDisplay": "UrlDisplay",
+            "urlExpanded": "UrlExpanded",
+            "keywords": "Keywords",
+            "placeId": "PlaceId",
+            "placeType": "PlaceType",
+            "placeName": "PlaceName",
+            "placeURL": "PlaceURL",
+            "placeFullName": "PlaceFullName",
+            "placeCountry": "PlaceCountry",
+            "location": "Location",
+            "userMentionScreenName": "UserMentionScreenName",
+            "userMentionName": "UserMentionName",
+            "isPossiblySensitive": "IsPossiblySensitive",
+            "isRetweetedByMe": "IsRetweetedByMe",
+            "isRetweet": "IsRetweet",
+            "isFavorited": "IsFavorited",
+            "isTruncated": "IsTruncated",
+            "retweetCount": "RetweetCount"
+        }
+    }
+}
+

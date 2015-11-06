@@ -1,0 +1,26 @@
+{
+  "generator-jhipster": {
+    "baseName": "3rud",
+    "packageName": "com.urud.app",
+    "packageFolder": "com/urud/app",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "solr",
+    "useSass": true,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "enableTranslation": true,
+    "rememberMeKey": "7aed23b13197494b34f34ab70f6f0cdbb5febf8f",
+    "enableSocialSignIn": true,
+    "testFrameworks": [
+      "gatling",
+      "cucumber"
+    ]
+  }
+}

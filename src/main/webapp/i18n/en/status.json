@@ -1,0 +1,10 @@
+{
+    "3rudApp": {
+        "Status" : {
+            "null": "",
+            "draft": "draft",
+            "published": "published",
+            "deleted": "deleted"
+        }
+    }
+}

@@ -1,0 +1,143 @@
+<div>
+    <h2 translate="3rudApp.tweet.home.title">Tweets</h2>
+    <jh-alert></jh-alert>
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-primary" ui-sref="tweet.new">
+                <span class="glyphicon glyphicon-flash"></span> <span translate="3rudApp.tweet.home.createLabel">Create a new Tweet</span>
+            </button>
+        </div>
+        <div class="col-md-9">
+            <div class="pull-right">
+                <form name="searchForm" class="form-inline" ng-submit="search()" novalidate show-validation>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="search for..." required>
+                    </div>
+                    <button ng-disabled="searchForm.$invalid" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span> <span translate="entity.action.search">Search a Tweet</span>
+                    </button>
+                </form>
+                <button ng-disabled="!areAllTweetsSelected" class="btn btn-default" ng-click="sync()">
+                    <i class="glyphicon glyphicon-refresh" aria-label="sync"></i>
+                    <span translate="entity.action.sync">sync</span>
+                </button>
+                <button ng-disabled="!areAllTweetsSelected" class="btn btn-default" ng-click="export()">
+                    <i class="glyphicon glyphicon-export" aria-label="export"></i>
+                    <span translate="entity.action.export">export</span>
+                </button>
+
+                <button ng-disabled="!areAllTweetsSelected" class="btn btn-default" ng-click="import()">
+                    <i class="glyphicon glyphicon-import" aria-label="import"></i>
+                    <span translate="entity.action.import">import</span>
+                </button>
+
+                <button ng-disabled="!areAllTweetsSelected" class="btn btn-default btn-danger" ng-click="deleteSelected()">
+                    <i class="glyphicon glyphicon-trash" aria-label="delete"></i>
+                    <span translate="entity.action.delete">delete</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+	        <caption class="caption notice text-center">
+	            <span translate="entity.action.found"
+	                 translate-values="{found: '{{tweets.length}}', total: '{{total}}'}">{{cats.length}} tweets retrieved from total of {{total}} tweets
+	            </span>
+	        </caption>
+
+            <thead>
+                <tr>
+	                <th><input type="checkbox" ng-model="areAllTweetsSelected" ng-change="updateTweetsSelection(tweets, areAllTweetsSelected)"></th>
+                    <th ng-click="order('id', reverse=!reverse)" translate="global.field.id">ID</th>
+                    <th ng-click="order('tweet', reverse=!reverse)" translate="3rudApp.tweet.tweet">Tweet</th>
+                    <th ng-click="order('url', reverse=!reverse)" translate="3rudApp.tweet.url">Url</th>
+                    <th ng-click="order('source', reverse=!reverse)" translate="3rudApp.tweet.source">Source</th>
+                    <th ng-click="order('userId', reverse=!reverse)" translate="3rudApp.tweet.userId">UserId</th>
+                    <th ng-click="order('userLang', reverse=!reverse)" translate="3rudApp.tweet.userLang">UserLang</th>
+                    <th ng-click="order('userName', reverse=!reverse)" translate="3rudApp.tweet.userName">UserName</th>
+                    <th ng-click="order('userScreenName', reverse=!reverse)" translate="3rudApp.tweet.userScreenName">UserScreenName</th>
+                    <th ng-click="order('userLocation', reverse=!reverse)" translate="3rudApp.tweet.userLocation">UserLocation</th>
+                    <th ng-click="order('mediaId', reverse=!reverse)" translate="3rudApp.tweet.mediaId">MediaId</th>
+                    <th ng-click="order('mediaUrl', reverse=!reverse)" translate="3rudApp.tweet.mediaUrl">MediaUrl</th>
+                    <th ng-click="order('inReplyToStatusId', reverse=!reverse)" translate="3rudApp.tweet.inReplyToStatusId">InReplyToStatusId</th>
+                    <th ng-click="order('inReplyToScreenName', reverse=!reverse)" translate="3rudApp.tweet.inReplyToScreenName">InReplyToScreenName</th>
+                    <th ng-click="order('inReplyToUserId', reverse=!reverse)" translate="3rudApp.tweet.inReplyToUserId">InReplyToUserId</th>
+                    <th ng-click="order('urlDisplay', reverse=!reverse)" translate="3rudApp.tweet.urlDisplay">UrlDisplay</th>
+                    <th ng-click="order('urlExpanded', reverse=!reverse)" translate="3rudApp.tweet.urlExpanded">UrlExpanded</th>
+                    <th ng-click="order('keywords', reverse=!reverse)" translate="3rudApp.tweet.keywords">Keywords</th>
+                    <th ng-click="order('placeId', reverse=!reverse)" translate="3rudApp.tweet.placeId">PlaceId</th>
+                    <th ng-click="order('placeType', reverse=!reverse)" translate="3rudApp.tweet.placeType">PlaceType</th>
+                    <th ng-click="order('placeName', reverse=!reverse)" translate="3rudApp.tweet.placeName">PlaceName</th>
+                    <th ng-click="order('placeURL', reverse=!reverse)" translate="3rudApp.tweet.placeURL">PlaceURL</th>
+                    <th ng-click="order('placeFullName', reverse=!reverse)" translate="3rudApp.tweet.placeFullName">PlaceFullName</th>
+                    <th ng-click="order('placeCountry', reverse=!reverse)" translate="3rudApp.tweet.placeCountry">PlaceCountry</th>
+                    <th ng-click="order('location', reverse=!reverse)" translate="3rudApp.tweet.location">Location</th>
+                    <th ng-click="order('userMentionScreenName', reverse=!reverse)" translate="3rudApp.tweet.userMentionScreenName">UserMentionScreenName</th>
+                    <th ng-click="order('userMentionName', reverse=!reverse)" translate="3rudApp.tweet.userMentionName">UserMentionName</th>
+                    <th ng-click="order('isPossiblySensitive', reverse=!reverse)" translate="3rudApp.tweet.isPossiblySensitive">IsPossiblySensitive</th>
+                    <th ng-click="order('isRetweetedByMe', reverse=!reverse)" translate="3rudApp.tweet.isRetweetedByMe">IsRetweetedByMe</th>
+                    <th ng-click="order('isRetweet', reverse=!reverse)" translate="3rudApp.tweet.isRetweet">IsRetweet</th>
+                    <th ng-click="order('isFavorited', reverse=!reverse)" translate="3rudApp.tweet.isFavorited">IsFavorited</th>
+                    <th ng-click="order('isTruncated', reverse=!reverse)" translate="3rudApp.tweet.isTruncated">IsTruncated</th>
+                    <th ng-click="order('retweetCount', reverse=!reverse)" translate="3rudApp.tweet.retweetCount">RetweetCount</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+                <tr ng-repeat="tweet in tweets  | filter:filter | orderBy:predicate:reverse track by tweet.id">
+				    <td><input type="checkbox" ng-model="tweet.isSelected"/></td>
+                    <td><a ui-sref="tweet.detail({id:tweet.id})">{{tweet.id}}</a></td>
+                    <td>{{tweet.tweet}}</td>
+                    <td>{{tweet.url}}</td>
+                    <td>{{tweet.source}}</td>
+                    <td>{{tweet.userId}}</td>
+                    <td>{{tweet.userLang}}</td>
+                    <td>{{tweet.userName}}</td>
+                    <td>{{tweet.userScreenName}}</td>
+                    <td>{{tweet.userLocation}}</td>
+                    <td>{{tweet.mediaId}}</td>
+                    <td>{{tweet.mediaUrl}}</td>
+                    <td>{{tweet.inReplyToStatusId}}</td>
+                    <td>{{tweet.inReplyToScreenName}}</td>
+                    <td>{{tweet.inReplyToUserId}}</td>
+                    <td>{{tweet.urlDisplay}}</td>
+                    <td>{{tweet.urlExpanded}}</td>
+                    <td>{{tweet.keywords}}</td>
+                    <td>{{tweet.placeId}}</td>
+                    <td>{{tweet.placeType}}</td>
+                    <td>{{tweet.placeName}}</td>
+                    <td>{{tweet.placeURL}}</td>
+                    <td>{{tweet.placeFullName}}</td>
+                    <td>{{tweet.placeCountry}}</td>
+                    <td>{{tweet.location}}</td>
+                    <td>{{tweet.userMentionScreenName}}</td>
+                    <td>{{tweet.userMentionName}}</td>
+                    <td>{{tweet.isPossiblySensitive}}</td>
+                    <td>{{tweet.isRetweetedByMe}}</td>
+                    <td>{{tweet.isRetweet}}</td>
+                    <td>{{tweet.isFavorited}}</td>
+                    <td>{{tweet.isTruncated}}</td>
+                    <td>{{tweet.retweetCount}}</td>
+                    <td class="btn-group">
+                        <button type="submit"
+                                ui-sref="tweet.detail({id:tweet.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="tweet.edit({id:tweet.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="tweet.delete({id:tweet.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Product.
+    -->
+    <changeSet id="20150814222322" author="jhipster">
+        <createTable tableName="product">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(512)">
+                <constraints nullable="false" />
+            </column>
+            <column name="url" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(255)"/>
+            <column name="status" type="varchar(255)"/>
+            <column name="in_stock" type="bit"/>
+            <column name="price" type="decimal(10,2)"/>
+            <column name="keywords" type="varchar(255)"/>
+            <column name="features" type="varchar(255)"/>
+            <column name="popularity" type="bigint"/>
+            <column name="location" type="varchar(255)"/>
+            <column name="manufacture_date" type="timestamp"/>
+            <column name="image" type="blob"/>
+            <column name="image_content_type" type="varchar(50)"/>
+            <column name="weight" type="decimal(10,2)"/>
+            <column name="sku" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="includes" type="varchar(255)"/>
+            <column name="incubation_date" type="timestamp"/>
+            <column name="user_id" type="bigint"/>
+        </createTable>
+        <dropDefaultValue tableName="product" columnName="manufacture_date" columnDataType="datetime"/>
+
+        <dropDefaultValue tableName="product" columnName="incubation_date" columnDataType="datetime"/>
+
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <createTable tableName="product_cat">
+            <column name="cats_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="products_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="products_id, cats_id" tableName="product_cat"/>
+
+        <addForeignKeyConstraint baseColumnNames="products_id"
+                                 baseTableName="product_cat"
+                                 constraintName="fk_product_cat_cat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+
+        <addForeignKeyConstraint baseColumnNames="cats_id"
+                                 baseTableName="product_cat"
+                                 constraintName="fk_cat_cat_product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cat"/>
+        
+        <createTable tableName="product_manufacturer">
+            <column name="manufacturers_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="products_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="products_id, manufacturers_id" tableName="product_manufacturer"/>
+
+        <addForeignKeyConstraint baseColumnNames="products_id"
+                                 baseTableName="product_manufacturer"
+                                 constraintName="fk_product_manufacturer_manufacturer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+
+        <addForeignKeyConstraint baseColumnNames="manufacturers_id"
+                                 baseTableName="product_manufacturer"
+                                 constraintName="fk_manufacturer_manufacturer_product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="manufacturer"/>
+        
+    </changeSet>
+</databaseChangeLog>

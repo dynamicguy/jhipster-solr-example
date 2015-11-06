@@ -1,0 +1,40 @@
+{
+    "3rudApp": {
+        "product" : {
+            "home": {
+                "title": "Products",
+                "createLabel": "Créer un nouveau Product",
+                "createOrEditLabel": "Créer ou éditer un Product"
+            },
+            "created": "Un nouveau Product a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Product avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Product avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Product {{ id }} ?"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "name": "Name",
+            "url": "Url",
+            "description": "Description",
+            "status": "Status",
+            "inStock": "InStock",
+            "price": "Price",
+            "keywords": "Keywords",
+            "features": "Features",
+            "popularity": "Popularity",
+            "location": "Location",
+            "manufactureDate": "ManufactureDate",
+            "image": "Image",
+            "weight": "Weight",
+            "sku": "Sku",
+            "includes": "Includes",
+            "incubationDate": "IncubationDate",
+            "user": "User",
+            "cat": "Cat",
+            "manufacturer": "Manufacturer"
+        }
+    }
+}
+

@@ -1,0 +1,19 @@
+jhipster-prod-solr:
+  container_name: 3rud-prod-solr
+  image: solr:1.5.3
+  # volumes:
+  # - ~/volumes/jhipster/3rud/prod-solr/:/usr/share/solr/data/
+  ports:
+  - "8983:8983"
+  - "9983:9983"
+jhipster-prod-postgresql:
+  container_name: 3rud-prod-postgresql
+  image: postgres:9.4.5
+  # volumes:
+  # - ~/volumes/jhipster/3rud/prod-postgresql/:/var/lib/postgresql/
+  environment:
+  - POSTGRES_USER=3rud
+  - POSTGRES_PASSWORD=
+  ports:
+  - "5432:5432"
+

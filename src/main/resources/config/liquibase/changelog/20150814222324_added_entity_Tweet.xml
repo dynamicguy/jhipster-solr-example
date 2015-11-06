@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Tweet.
+    -->
+    <changeSet id="20150814222324" author="jhipster">
+        <createTable tableName="tweet">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="tweet" type="varchar(144)">
+                <constraints nullable="false" />
+            </column>
+            <column name="url" type="varchar(255)"/>
+            <column name="source" type="varchar(255)"/>
+            <column name="user_id" type="bigint"/>
+            <column name="user_lang" type="varchar(255)"/>
+            <column name="user_name" type="varchar(255)"/>
+            <column name="user_screen_name" type="varchar(255)"/>
+            <column name="user_location" type="varchar(255)"/>
+            <column name="media_id" type="bigint"/>
+            <column name="media_url" type="varchar(255)"/>
+            <column name="in_reply_to_status_id" type="varchar(255)"/>
+            <column name="in_reply_to_screen_name" type="varchar(255)"/>
+            <column name="in_reply_to_user_id" type="bigint"/>
+            <column name="url_display" type="varchar(255)"/>
+            <column name="url_expanded" type="varchar(255)"/>
+            <column name="keywords" type="varchar(255)"/>
+            <column name="place_id" type="varchar(255)"/>
+            <column name="place_type" type="varchar(255)"/>
+            <column name="place_name" type="varchar(255)"/>
+            <column name="place_url" type="varchar(255)"/>
+            <column name="place_full_name" type="varchar(255)"/>
+            <column name="place_country" type="varchar(255)"/>
+            <column name="location" type="varchar(255)"/>
+            <column name="user_mention_screen_name" type="varchar(255)"/>
+            <column name="user_mention_name" type="varchar(255)"/>
+            <column name="is_possibly_sensitive" type="bit"/>
+            <column name="is_retweeted_by_me" type="bit"/>
+            <column name="is_retweet" type="bit"/>
+            <column name="is_favorited" type="bit"/>
+            <column name="is_truncated" type="bit"/>
+            <column name="retweet_count" type="bigint"/>
+        </createTable>
+        
+    </changeSet>
+</databaseChangeLog>

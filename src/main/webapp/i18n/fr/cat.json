@@ -1,0 +1,23 @@
+{
+    "3rudApp": {
+        "cat" : {
+            "home": {
+                "title": "Cats",
+                "createLabel": "Créer un nouveau Cat",
+                "createOrEditLabel": "Créer ou éditer un Cat"
+            },
+            "created": "Un nouveau Cat a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Cat avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Cat avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Cat {{ id }} ?"
+            },
+            "detail": {
+                "title": "Cat"
+            },
+            "cat": "Cat",
+            "product": "Product"
+        }
+    }
+}
+

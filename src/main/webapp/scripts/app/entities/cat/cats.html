@@ -1,0 +1,96 @@
+<div>
+    <h2 translate="3rudApp.cat.home.title">Cats</h2>
+    <jh-alert></jh-alert>
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-primary" ui-sref="cat.new">
+                <span class="glyphicon glyphicon-flash"></span> <span translate="3rudApp.cat.home.createLabel">Create a new Cat</span>
+            </button>
+        </div>
+        <div class="col-md-9">
+            <div class="pull-right">
+                <form name="searchForm" class="form-inline" ng-submit="search()" novalidate show-validation>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="search for..." required>
+                    </div>
+                    <button ng-disabled="searchForm.$invalid" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span> <span translate="entity.action.search">Search a Cat</span>
+                    </button>
+                </form>
+                <button ng-disabled="!areAllCatsSelected" class="btn btn-default" ng-click="sync()">
+                    <i class="glyphicon glyphicon-refresh" aria-label="sync"></i>
+                    <span translate="entity.action.sync">sync</span>
+                </button>
+                <button ng-disabled="!areAllCatsSelected" class="btn btn-default" ng-click="export()">
+                    <i class="glyphicon glyphicon-export" aria-label="export"></i>
+                    <span translate="entity.action.export">export</span>
+                </button>
+
+                <button ng-disabled="!areAllCatsSelected" class="btn btn-default" ng-click="import()">
+                    <i class="glyphicon glyphicon-import" aria-label="import"></i>
+                    <span translate="entity.action.import">import</span>
+                </button>
+
+                <button ng-disabled="!areAllCatsSelected" class="btn btn-default btn-danger" ng-click="deleteSelected()">
+                    <i class="glyphicon glyphicon-trash" aria-label="delete"></i>
+                    <span translate="entity.action.delete">delete</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+	        <caption class="caption notice text-center">
+	            <span translate="entity.action.found"
+	                 translate-values="{found: '{{cats.length}}', total: '{{total}}'}">{{cats.length}} cats retrieved from total of {{total}} cats
+	            </span>
+	        </caption>
+
+            <thead>
+                <tr>
+	                <th><input type="checkbox" ng-model="areAllCatsSelected" ng-change="updateCatsSelection(cats, areAllCatsSelected)"></th>
+                    <th ng-click="order('id', reverse=!reverse)" translate="global.field.id">ID</th>
+                    <th ng-click="order('cat', reverse=!reverse)" translate="3rudApp.cat.cat">Cat</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cat in cats  | filter:filter | orderBy:predicate:reverse track by cat.id">
+				    <td><input type="checkbox" ng-model="cat.isSelected"/></td>
+                    <td><a ui-sref="cat.detail({id:cat.id})">{{cat.id}}</a></td>
+                    <td>{{cat.cat}}</td>
+                    <td class="btn-group">
+                        <button type="submit"
+                                ui-sref="cat.detail({id:cat.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="cat.edit({id:cat.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="cat.delete({id:cat.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination">
+                <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+                <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
+                <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
+                <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
+                <li class="active"><a>{{page + 1}}</a></li>
+                <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
+                <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+                <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

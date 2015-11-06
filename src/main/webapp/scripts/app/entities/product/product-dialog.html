@@ -1,0 +1,181 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myProductLabel" translate="3rudApp.product.home.createOrEditLabel">Create or edit a Product</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="product.id" readonly />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="product.name"
+                    required ng-minlength="3" ng-maxlength="512" />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.name.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+                    This field is required to be at least 3 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="512">
+                    This field cannot be longer than 512 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.url" for="field_url">Url</label>
+            <input type="text" class="form-control" name="url" id="field_url"
+                    ng-model="product.url"
+                    required />
+            <div ng-show="editForm.url.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.url.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="product.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.status" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="product.status" id="field_status">
+                <option value="draft" translate="3rudApp.Status.draft">draft</option>
+                <option value="published" translate="3rudApp.Status.published">published</option>
+                <option value="deleted" translate="3rudApp.Status.deleted">deleted</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.inStock" for="field_inStock">InStock</label>
+            <input type="checkbox" class="form-control" name="inStock" id="field_inStock"
+                    ng-model="product.inStock"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.price" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="product.price"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.keywords" for="field_keywords">Keywords</label>
+            <input type="text" class="form-control" name="keywords" id="field_keywords"
+                    ng-model="product.keywords"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.features" for="field_features">Features</label>
+            <input type="text" class="form-control" name="features" id="field_features"
+                    ng-model="product.features"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.popularity" for="field_popularity">Popularity</label>
+            <input type="number" class="form-control" name="popularity" id="field_popularity"
+                    ng-model="product.popularity"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.location" for="field_location">Location</label>
+            <input type="text" class="form-control" name="location" id="field_location"
+                    ng-model="product.location"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.manufactureDate" for="field_manufactureDate">ManufactureDate</label>
+            <input type="datetime-local" class="form-control" name="manufactureDate" id="field_manufactureDate"
+                    ng-model="product.manufactureDate"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="setImage($file, product)" ngf-pattern="'image/*'">
+            <label translate="3rudApp.product.image" for="field_image">Image</label>
+            <div>
+                <img data-ng-src="{{'data:' + product.imageContentType + ';base64,' + product.image}}" style="max-height: 100px;" ng-if="product.image"/>
+                <div class="help-block clearfix">
+                    <span class="pull-left">{{product.imageContentType}} {{byteSize(product.image)}}</span>
+                    <button ng-click="product.image=null;product.imageContentType=null;"
+                            ng-if="product.image"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="setImage($file, product)" accept="image/*" translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
+                    ng-model="product.image"
+                     />
+            <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                    ng-model="product.imageContentType" />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.weight" for="field_weight">Weight</label>
+            <input type="number" class="form-control" name="weight" id="field_weight"
+                    ng-model="product.weight"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.sku" for="field_sku">Sku</label>
+            <input type="text" class="form-control" name="sku" id="field_sku"
+                    ng-model="product.sku"
+                    required />
+            <div ng-show="editForm.sku.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.sku.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.includes" for="field_includes">Includes</label>
+            <input type="text" class="form-control" name="includes" id="field_includes"
+                    ng-model="product.includes"
+                     />
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.incubationDate" for="field_incubationDate">IncubationDate</label>
+            <input type="datetime-local" class="form-control" name="incubationDate" id="field_incubationDate"
+                    ng-model="product.incubationDate"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="3rudApp.product.user" for="field_user">user</label>
+            <select class="form-control" id="field_user" name="user" ng-model="product.user" ng-options="user as user.login for user in users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.cat" for="field_cat">cat</label>
+            <select class="form-control" id="field_cat" multiple name="cat" ng-model="product.cats" ng-options="cat as cat.cat for cat in cats track by cat.id"></select>
+        </div>
+        <div class="form-group">
+            <label translate="3rudApp.product.manufacturer" for="field_manufacturer">manufacturer</label>
+            <select class="form-control" id="field_manufacturer" multiple name="manufacturer" ng-model="product.manufacturers" ng-options="manufacturer as manufacturer.name for manufacturer in manufacturers track by manufacturer.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

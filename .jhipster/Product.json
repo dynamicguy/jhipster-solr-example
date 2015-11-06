@@ -1,0 +1,127 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "cat",
+            "otherEntityName": "cat",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "cat",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "manufacturer",
+            "otherEntityName": "manufacturer",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "name",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "3",
+            "fieldValidateRulesMaxlength": "512"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "url",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "draft,published,deleted"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "inStock",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "price",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "keywords",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "features",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "popularity",
+            "fieldType": "Long"
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "location",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 12,
+            "fieldName": "manufactureDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldId": 13,
+            "fieldName": "image",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldId": 14,
+            "fieldName": "weight",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldId": 15,
+            "fieldName": "sku",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 16,
+            "fieldName": "includes",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 17,
+            "fieldName": "incubationDate",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20150814222322",
+    "dto": "no",
+    "pagination": "pagination"
+}

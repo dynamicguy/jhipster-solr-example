@@ -1,0 +1,27 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "product",
+            "otherEntityName": "product",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "cat"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "cat",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "3"
+        }
+    ],
+    "changelogDate": "20150814222320",
+    "dto": "no",
+    "pagination": "pagination"
+}

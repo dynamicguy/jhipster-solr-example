@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         name="CM1"
+         updateCheck="false"
+         maxBytesLocalHeap="16M">
+
+    <diskStore path="java.io.tmpdir"/>
+
+    <defaultCache
+            eternal="false"
+            overflowToDisk="false"
+            />
+
+    <cache name="com.urud.app.domain.User"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.urud.app.domain.Authority"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.urud.app.domain.User.authorities"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.urud.app.domain.PersistentToken"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.urud.app.domain.User.persistentTokens"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.urud.app.domain.PersistentAuditEvent"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.urud.app.domain.SocialUserConnection" timeToLiveSeconds="3600"></cache>
+    <cache name="com.urud.app.domain.Cat" timeToLiveSeconds="3600"></cache>
+    <cache name="com.urud.app.domain.Product" timeToLiveSeconds="3600"></cache>
+    <cache name="com.urud.app.domain.Manufacturer" timeToLiveSeconds="3600"></cache>
+    <cache name="com.urud.app.domain.Product.manufacturers" timeToLiveSeconds="3600"></cache>
+    <cache name="com.urud.app.domain.Product.cats" timeToLiveSeconds="3600"></cache>
+    <cache name="com.urud.app.domain.Cat.products" timeToLiveSeconds="3600"></cache>
+    <cache name="com.urud.app.domain.Manufacturer.products" timeToLiveSeconds="3600"></cache>
+
+</ehcache>
+

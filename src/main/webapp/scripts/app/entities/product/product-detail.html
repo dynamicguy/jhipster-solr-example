@@ -1,0 +1,179 @@
+
+<div>
+    <h2><span translate="3rudApp.product.detail.title">Product</span> {{product.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.name">Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.url">Url</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.url}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.description">Description</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.description}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.status">Status</span>
+                </td>
+                <td>
+                    <span class="form-control-static" translate="{{'3rudApp.Status.' + product.status}}">{{product.status}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.inStock">InStock</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.inStock}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.price">Price</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.price}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.keywords">Keywords</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.keywords}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.features">Features</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.features}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.popularity">Popularity</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.popularity}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.location">Location</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.location}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.manufactureDate">ManufactureDate</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.manufactureDate | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.image">Image</span>
+                </td>
+                <td>
+                    <img data-ng-src="{{'data:' + product.imageContentType + ';base64,' + product.image}}" style="max-width: 100%;" ng-if="product.image"/>
+                    <div>{{product.imageContentType}}  {{byteSize(product.image)}}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.weight">Weight</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.weight}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.sku">Sku</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.sku}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.includes">Includes</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.includes}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.incubationDate">IncubationDate</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.incubationDate | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.user">user</span>
+                </td>
+                <td>
+                    {{product.user.login}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.cat">cat</span>
+                </td>
+                <td>
+                    <span ng-repeat="cat in product.cats">
+                        <a class="form-control-static" ui-sref="cat.detail({id: {{cat.id}}})">{{cat.cat}}</a>{{$last ? '' : ', '}}
+                    <span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="3rudApp.product.manufacturer">manufacturer</span>
+                </td>
+                <td>
+                    <span ng-repeat="manufacturer in product.manufacturers">
+                        <a class="form-control-static" ui-sref="manufacturer.detail({id: {{manufacturer.id}}})">{{manufacturer.name}}</a>{{$last ? '' : ', '}}
+                    <span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
